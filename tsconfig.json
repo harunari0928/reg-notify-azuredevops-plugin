@@ -1,0 +1,29 @@
+{
+    "compilerOptions": {
+        "incremental": true,
+        "target": "ESNext",
+        "module": "Node16",
+        "lib": [
+            "ESNext"
+        ],
+        "noEmitOnError": true,
+        "allowJs": false,
+        "allowSyntheticDefaultImports": true,
+        "removeComments": true,
+        "sourceMap": true,
+        "strictNullChecks": true,
+        "skipLibCheck": true,
+        "noImplicitAny": true,
+        "strict": true,
+        "esModuleInterop": true,
+        "isolatedModules": true,
+        "baseUrl": "src",
+        "forceConsistentCasingInFileNames": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "resolveJsonModule": true,
+    },
+    "exclude": [
+        "node_modules"
+    ],
+}

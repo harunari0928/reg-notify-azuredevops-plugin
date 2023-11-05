@@ -1,0 +1,36 @@
+root: true
+extends:
+  - prettier
+parser: '@typescript-eslint/parser'
+parserOptions:
+  sourceType: 'module'
+  project: './tsconfig.json'
+plugins:
+  - '@typescript-eslint'
+  - '@stylistic/ts'
+rules:
+  eol-last:
+    - error
+    - always
+  no-eval: error
+  no-debugger: error
+  no-console: error
+  no-duplicate-imports: error
+  no-var: error
+  no-unsafe-finally: error
+  prefer-const: error
+  prefer-rest-params: error
+  prefer-spread: error
+  semi:
+    - error
+    - always
+  '@typescript-eslint/no-use-before-define': error
+  '@typescript-eslint/no-namespace': error
+  '@typescript-eslint/ban-ts-comment': error
+  '@typescript-eslint/ban-types': error
+  '@stylistic/ts/indent':
+    - error
+    - 2
+  '@stylistic/ts/quotes':
+    - error
+    - single
