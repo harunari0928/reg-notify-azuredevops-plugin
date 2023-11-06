@@ -15,7 +15,7 @@ describe('AzureDevopsNotifierPlugin', () => {
       workingDirs: vi.fn()(),
       logger: { ...defaultMockLogger, ...logger }as any,
       noEmit: isNoEmit,
-      options: { organization: 'YourOrg', pullRequestId: 5, repositoryId: 'guid', project: 'YourProject', 'api-version': 'test', PAT: 'YourPAT' },
+      options: { organization: 'YourOrg', pullRequestId: 5, repositoryId: 'guid', project: 'YourProject', PAT: 'YourPAT' },
     });
     return plugin;
   }

@@ -10,7 +10,6 @@ export interface AzureDevopsPluginOption {
   pullRequestId: number,
   repositoryId: string,
   project?: string,
-  'api-version': string
   PAT: string;
 }
 

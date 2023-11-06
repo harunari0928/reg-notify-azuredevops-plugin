@@ -18,7 +18,6 @@ export class AzureDevopsPreparer implements PluginPreparer<AzureDevopsPreparerOp
       pullRequestId: option.options.pullRequestId,
       repositoryId: option.options.repositoryId,
       project: option.options.project,
-      'api-version': '7.1',
       PAT: option.options.PAT
     });
   }
