@@ -15,14 +15,14 @@ Simple Azure DevOps(Repos) notification plugin for [reg-suit](https://github.com
 
 ### Install package
    
-If you use npm, 
+If you use npm,
 ```sh
 npm install -D reg-notify-azuredevops-plugin
 ```
 
 ### Create AzureDevOps PAT
 
-* Required Scope
+* Required Scopes
    - Code
      - Read & Write
    - Pull Request Threads
@@ -36,12 +36,12 @@ npm install -D reg-notify-azuredevops-plugin
 {
 ...
   "reg-notify-azuredevops-plugin": {
-    "organization": "{YOUR AZURE DEVOPS ORGANIZATION}",
+    "organization": "{Your AzureDevOps Organization}",
     "pullRequestId": "$SYSTEM_PULLREQUEST_PULLREQUESTID",
     "repositoryId": "$BUILD_REPOSITORY_ID",
     "project": "$SYSTEM_TEAMPROJECT",
-    // NOTE: I recommend using a environment variable.(eg. $MY_PAT)
-    "PAT": "{YOUR PAT}"
+    // NOTE: Using a environment variable is recommended(eg. $MY_PAT)
+    "PAT": "{Your PAT}"
   }
 ...
 }
