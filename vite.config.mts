@@ -18,4 +18,8 @@ export default defineConfig(() => ({
     target: 'esnext',
   },
   plugins: [dts()],
+  test: {
+    dir: './src',
+    globals: true,
+  },
 }));
