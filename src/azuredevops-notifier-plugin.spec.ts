@@ -121,6 +121,38 @@ describe('AzureDevopsNotifierPlugin', () => {
       expect(JSON.stringify(mocks.fetch.mock.calls[0][1])).toContain('wontFix');
     });
 
+    it('should post no diff message, if failed and new and deleted items doesn\'t exist', async () => {
+      const plugin = getPlugin(false);
+      
+      await plugin.notify({ 
+        ...defaultNotfiyParam,
+        comparisonResult: {
+          ...defaultNotfiyParam.comparisonResult,
+          failedItems: [], 
+          newItems: [],
+          deletedItems: [],
+        }});
+        
+      expect(JSON.stringify(mocks.fetch.mock.calls[0][1])).toContain('That\'s perfect, there is no visual difference!');
+    });
+    
+    it.each(['failed', 'new', 'deleted'])('should post diff detection message, if some %s items exist',
+      async (itemType) => {
+        const plugin = getPlugin(false);
+      
+        await plugin.notify({ 
+          ...defaultNotfiyParam,
+          comparisonResult: {
+            ...defaultNotfiyParam.comparisonResult,
+            failedItems: [], 
+            newItems: [],
+            deletedItems: [],
+            [`${itemType}Items`]: ['test'],
+          }});
+        
+        expect(JSON.stringify(mocks.fetch.mock.calls[0][1])).toContain('reg-suit detected visual differences.');
+      });
+
     it('should emit error messages, if sending a comment is failed', async () => {
       mocks.fetch.mockImplementation(() => Promise.resolve({
         status: 400, body: {}
