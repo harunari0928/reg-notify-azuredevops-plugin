@@ -13,7 +13,7 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "node-fetch": "2.7.0",
+    "node-fetch": "3.3.2",
     "reg-suit-util": "0.12.2",
     "tiny-commit-walker": "1.2.1",
     "vite": "4.5.0",
