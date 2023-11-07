@@ -13,7 +13,7 @@ describe('AzureDevopsNotifierPlugin', () => {
     plugin.init({
       coreConfig: vi.fn()(),
       workingDirs: vi.fn()(),
-      logger: { ...defaultMockLogger, ...logger }as any,
+      logger: { ...defaultMockLogger, ...logger } as any,
       noEmit: isNoEmit,
       options: { organization: 'YourOrg', pullRequestId: 5, repositoryId: 'guid', project: 'YourProject', PAT: 'YourPAT' },
     });
@@ -49,7 +49,7 @@ describe('AzureDevopsNotifierPlugin', () => {
       }
     };
     
-    describe('if git head type is neither branch nor commit', () => {
+    describe('if the git head type is neither branch nor commit', () => {
       mocks.repo.mockImplementation(() => ({
         readHeadSync: () => ({ type: 'test', }),
       }));
@@ -71,7 +71,7 @@ describe('AzureDevopsNotifierPlugin', () => {
       });
     });
 
-    describe('if git head is not attached into any branches', () => {
+    describe('if the git head is not attached into any branches', () => {
       mocks.repo.mockImplementation(() => ({
         readHeadSync: () => ({ type: 'commit', commit: { hash: 'hash' }}),
       }));
@@ -85,14 +85,14 @@ describe('AzureDevopsNotifierPlugin', () => {
         expect(mocks.fetch).not.toHaveBeenCalled();
       });
 
-      it('should emit an warning message', async () => {
+      it('should emit a warning message', async () => {
         await plugin.notify(defaultNotfiyParam).catch(() => {});
         
         expect(mockLogWarn).toHaveBeenCalled();
       });
     });
 
-    it('should not send any comments, if noEmit option is enabled', async () => {
+    it('shouldn\'t post any comments, if the "noEmit" option is enabled', async () => {
       const plugin = getPlugin(true);
       
       await plugin.notify(defaultNotfiyParam);
@@ -121,7 +121,7 @@ describe('AzureDevopsNotifierPlugin', () => {
       expect(JSON.stringify(mocks.fetch.mock.calls[0][1])).toContain('wontFix');
     });
 
-    it('should post no diff message, if failed and new and deleted items doesn\'t exist', async () => {
+    it('should post a no diff message, when no items that represent failed or new or deleted exist', async () => {
       const plugin = getPlugin(false);
       
       await plugin.notify({ 
@@ -136,7 +136,7 @@ describe('AzureDevopsNotifierPlugin', () => {
       expect(JSON.stringify(mocks.fetch.mock.calls[0][1])).toContain('That\'s perfect, there is no visual difference!');
     });
     
-    it.each(['failed', 'new', 'deleted'])('should post diff detection message, if some %s items exist',
+    it.each(['failed', 'new', 'deleted'])('should post a diff detection message, if some %s items exist',
       async (itemType) => {
         const plugin = getPlugin(false);
       
@@ -153,7 +153,7 @@ describe('AzureDevopsNotifierPlugin', () => {
         expect(JSON.stringify(mocks.fetch.mock.calls[0][1])).toContain('reg-suit detected visual differences.');
       });
 
-    it('should emit error messages, if sending a comment is failed', async () => {
+    it('should emit an error messages, if posting a comment is failed', async () => {
       mocks.fetch.mockImplementation(() => Promise.resolve({
         status: 400, body: {}
       }));
