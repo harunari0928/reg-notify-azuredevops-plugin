@@ -20,7 +20,7 @@
     "vite-plugin-dts": "3.6.3"
   },
   "devDependencies": {
-    "@stylistic/eslint-plugin-ts": "1.0.1",
+    "@stylistic/eslint-plugin-ts": "1.1.0",
     "@types/node": "20.9.0",
     "@types/node-fetch": "2.6.9",
     "@typescript-eslint/eslint-plugin": "6.10.0",
