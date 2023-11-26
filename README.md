@@ -3,7 +3,6 @@
 Simple Azure DevOps(Repos) notification plugin for [reg-suit](https://github.com/reg-viz/reg-suit)
 
 <img width="592" alt="image" src="https://github.com/harunari0928/reg-notify-azuredevops-plugin/assets/33255443/1bd1dfa8-3db9-4659-8808-5e15064b713b">
-<img width="590" alt="image" src="https://github.com/harunari0928/reg-notify-azuredevops-plugin/assets/33255443/3fcc02b7-c4fc-4567-83ae-e6aa97242030">
 
 ## Prerequisites
 

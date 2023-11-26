@@ -80,7 +80,7 @@ export class AzureDevopsNotifierPlugin implements NotifierPlugin<AzureDevopsPlug
             content: comment,
             commentType: 'text',
           }],
-          status: isFailed ? 'active' : 'wontFix',
+          status: isFailed ? 'active' : 'closed',
         }),
       });
 

@@ -113,12 +113,12 @@ describe('AzureDevopsNotifierPlugin', () => {
       expect(JSON.stringify(mocks.fetch.mock.calls[0][1])).toContain('active');
     });
     
-    it('should make a pullrequest comment status "won\'t fix", when no failed items exist', async () => {
+    it('should make a pullrequest comment status "closed", when no failed items exist', async () => {
       const plugin = getPlugin(false);
       
       await plugin.notify(defaultNotfiyParam);
         
-      expect(JSON.stringify(mocks.fetch.mock.calls[0][1])).toContain('wontFix');
+      expect(JSON.stringify(mocks.fetch.mock.calls[0][1])).toContain('closed');
     });
 
     it('should post a no diff message, when no items that represent failed or new or deleted exist', async () => {
