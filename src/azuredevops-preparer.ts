@@ -15,9 +15,9 @@ export class AzureDevopsPreparer implements PluginPreparer<AzureDevopsPreparerOp
   prepare(option: PluginCreateOptions<AzureDevopsPreparerOption>): Promise<AzureDevopsPluginOption> {
     return Promise.resolve({
       organization: option.options.organization,
-      pullRequestId: option.options.pullRequestId,
-      repositoryId: option.options.repositoryId,
-      project: option.options.project,
+      pullRequestId: Number(process.env['SYSTEM_PULLREQUEST_PULLREQUESTID']),
+      repositoryId: process.env['BUILD_REPOSITORY_ID'] ?? '',
+      project: process.env['SYSTEM_TEAMPROJECT'],
       PAT: option.options.PAT
     });
   }
