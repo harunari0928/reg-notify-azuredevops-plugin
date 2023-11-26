@@ -7,9 +7,6 @@ import { createCommentBody } from './create-comment';
 
 export interface AzureDevopsPluginOption {
   organization: string,
-  pullRequestId: number,
-  repositoryId: string,
-  project?: string,
   PAT: string;
 }
 
@@ -58,11 +55,20 @@ export class AzureDevopsNotifierPlugin implements NotifierPlugin<AzureDevopsPlug
     await this.sendComment(this.options, comment, failedItems.length > 0);
   }
 
-  private async sendComment({organization, project , repositoryId, pullRequestId, PAT }: AzureDevopsPluginOption, comment: string, isFailed: boolean) {
+  private async sendComment({organization, PAT }: AzureDevopsPluginOption, comment: string, isFailed: boolean) {
     const spinner = this.logger.getSpinner('sending notification to AzureDevops...');
     spinner.start();
     try {
-      const { status, body } = await fetch(`https://dev.azure.com/${organization}/${project}/_apis/git/repositories/${repositoryId}/pullRequests/${pullRequestId}/threads?api-version=7.1`, {
+      const createUrl = () => {
+        const repositoryId = process.env['BUILD_REPOSITORY_ID'] ?? '';
+        const pullRequestId = Number(process.env['SYSTEM_PULLREQUEST_PULLREQUESTID']);
+        const project = process.env['SYSTEM_TEAMPROJECT'];
+        if (project) {
+          return `https://dev.azure.com/${organization}/${project}/_apis/git/repositories/${repositoryId}/pullRequests/${pullRequestId}/threads?api-version=7.1`;
+        }
+        return `https://dev.azure.com/${organization}/_apis/git/repositories/${repositoryId}/pullRequests/${pullRequestId}/threads?api-version=7.1`;
+      };
+      const { status, body } = await fetch(createUrl(), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

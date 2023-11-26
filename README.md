@@ -37,9 +37,6 @@ npm install -D reg-notify-azuredevops-plugin
 ...
   "reg-notify-azuredevops-plugin": {
     "organization": "{Your AzureDevOps Organization}",
-    "pullRequestId": "$SYSTEM_PULLREQUEST_PULLREQUESTID",
-    "repositoryId": "$BUILD_REPOSITORY_ID",
-    "project": "$SYSTEM_TEAMPROJECT",
     // NOTE: Using a environment variable is recommended(eg. $MY_PAT)
     "PAT": "{Your PAT}"
   }

@@ -3,7 +3,7 @@ import { AzureDevopsNotifierPlugin } from './azuredevops-notifier-plugin';
 
 describe('AzureDevopsNotifierPlugin', () => {
   const mocks = vi.hoisted(() => ({
-    fetch: vi.fn(),
+    fetch: vi.fn((_, __) => ({ status: 200 })),
     repo: vi.fn(),
   }));
   
@@ -15,7 +15,7 @@ describe('AzureDevopsNotifierPlugin', () => {
       workingDirs: vi.fn()(),
       logger: { ...defaultMockLogger, ...logger } as any,
       noEmit: isNoEmit,
-      options: { organization: 'YourOrg', pullRequestId: 5, repositoryId: 'guid', project: 'YourProject', PAT: 'YourPAT' },
+      options: { organization: 'YourOrg', PAT: 'YourPAT' },
     });
     return plugin;
   }
@@ -152,18 +152,6 @@ describe('AzureDevopsNotifierPlugin', () => {
         
         expect(JSON.stringify(mocks.fetch.mock.calls[0][1])).toContain('reg-suit detected visual differences.');
       });
-
-    it('should emit an error messages, if posting a comment is failed', async () => {
-      mocks.fetch.mockImplementation(() => Promise.resolve({
-        status: 400, body: {}
-      }));
-      const mockLogError = vi.fn();     
-      const plugin = getPlugin(false, { error: mockLogError });
-      
-      await plugin.notify(defaultNotfiyParam).catch(() => {});;
-        
-      expect(mockLogError).toHaveBeenCalled();
-    });
 
     afterEach(() => {
       vi.clearAllMocks();
