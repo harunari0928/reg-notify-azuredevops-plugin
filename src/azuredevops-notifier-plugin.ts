@@ -87,8 +87,6 @@ export class AzureDevopsNotifierPlugin implements NotifierPlugin<AzureDevopsPlug
       if (400 <= status) {
         throw new Error(`HTTP ${status}: Failed to request.\n${body.read()}`);
       }
-    } catch (err) {
-      this.logger.error(err as Error);
     }
     finally {
       spinner.stop();
