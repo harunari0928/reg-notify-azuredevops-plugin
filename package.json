@@ -17,7 +17,7 @@
     "reg-suit-util": "0.12.2",
     "tiny-commit-walker": "1.2.1",
     "vite": "5.0.11",
-    "vite-plugin-dts": "3.6.3"
+    "vite-plugin-dts": "3.7.0"
   },
   "devDependencies": {
     "@stylistic/eslint-plugin-ts": "1.4.1",
