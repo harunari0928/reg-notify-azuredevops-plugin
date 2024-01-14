@@ -19,16 +19,6 @@ If you use npm,
 npm install -D reg-notify-azuredevops-plugin
 ```
 
-### Create AzureDevOps PAT
-
-* Required Scopes
-   - Code
-     - Read & Write
-   - Pull Request Threads
-     - Read & Write
-
-[Documentation for creating PAT](https://learn.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=Windows#create-a-pat)
-
 ### Add plugin settings to your `regconfig.json`
 
 ```json
@@ -36,8 +26,6 @@ npm install -D reg-notify-azuredevops-plugin
 ...
   "reg-notify-azuredevops-plugin": {
     "organization": "{Your AzureDevOps Organization}",
-    // NOTE: Using a environment variable is recommended(eg. $MY_PAT)
-    "PAT": "{Your PAT}"
   }
 ...
 }

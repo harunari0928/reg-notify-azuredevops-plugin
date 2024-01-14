@@ -15,7 +15,7 @@ describe('AzureDevopsNotifierPlugin', () => {
       workingDirs: vi.fn()(),
       logger: { ...defaultMockLogger, ...logger } as any,
       noEmit: isNoEmit,
-      options: { organization: 'YourOrg', PAT: 'YourPAT' },
+      options: { organization: 'YourOrg' },
     });
     return plugin;
   }
@@ -49,49 +49,6 @@ describe('AzureDevopsNotifierPlugin', () => {
       }
     };
     
-    describe('if the git head type is neither branch nor commit', () => {
-      mocks.repo.mockImplementation(() => ({
-        readHeadSync: () => ({ type: 'test', }),
-      }));
-      
-
-      const mockLogError = vi.fn();     
-      const plugin = getPlugin(false, { error: mockLogError });
-
-      it('should abort notifying', async () => {
-        await plugin.notify(defaultNotfiyParam).catch(() => {});
-        
-        expect(mocks.fetch).not.toHaveBeenCalled();
-      });
-  
-      it('should emit an error message', async () => {
-        await plugin.notify(defaultNotfiyParam).catch(() => {});
-        
-        expect(mockLogError).toHaveBeenCalled();
-      });
-    });
-
-    describe('if the git head is not attached into any branches', () => {
-      mocks.repo.mockImplementation(() => ({
-        readHeadSync: () => ({ type: 'commit', commit: { hash: 'hash' }}),
-      }));
-      
-      const mockLogWarn = vi.fn();     
-      const plugin = getPlugin(false, { warn: mockLogWarn });
-      
-      it('should abort notifying', async () => {
-        await plugin.notify(defaultNotfiyParam).catch(() => {});
-        
-        expect(mocks.fetch).not.toHaveBeenCalled();
-      });
-
-      it('should emit a warning message', async () => {
-        await plugin.notify(defaultNotfiyParam).catch(() => {});
-        
-        expect(mockLogWarn).toHaveBeenCalled();
-      });
-    });
-
     it('shouldn\'t post any comments, if the "noEmit" option is enabled', async () => {
       const plugin = getPlugin(true);
       
