@@ -1,6 +1,6 @@
 {
   "name": "reg-notify-azuredevops-plugin",
-  "version": "1.1.2",
+  "version": "1.1.4",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "description": "",
