@@ -44,8 +44,8 @@ devDependencies:
     specifier: 4.0.0
     version: 4.0.0(prettier@3.2.5)
   reg-suit-interface:
-    specifier: 0.13.0
-    version: 0.13.0
+    specifier: 0.14.2
+    version: 0.14.2
   ts-node:
     specifier: 10.9.2
     version: 10.9.2(@types/node@20.11.18)(typescript@5.3.3)
@@ -645,8 +645,8 @@ packages:
   /@types/estree@1.0.5:
     resolution: {integrity: sha512-/kYRxGDLWzHOB7q+wtSUQlFrtcdUccpfy+X+9iMBpHK8QLLhx2wIPYuS5DYtR9Wa/YlZAbIovy7qVdB1Aq6Lyw==}
 
-  /@types/inquirer@8.2.0:
-    resolution: {integrity: sha512-BNoMetRf3gmkpAlV5we+kxyZTle7YibdOntIZbU5pyIfMdcwy784KfeZDAcuyMznkh5OLa17RVXZOGA5LTlkgQ==}
+  /@types/inquirer@8.2.10:
+    resolution: {integrity: sha512-IdD5NmHyVjWM8SHWo/kPBgtzXatwPkfwzyP3fN1jF2g9BWt5WO+8hL2F4o2GKIYsU40PpqeevuUWvkS/roXJkA==}
     dependencies:
       '@types/through': 0.0.32
       rxjs: 7.8.1
@@ -2073,10 +2073,10 @@ packages:
     resolution: {integrity: sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==}
     dev: true
 
-  /reg-suit-interface@0.13.0:
-    resolution: {integrity: sha512-eXkEfce3zaFfhj5PE19ltJRlBbh4qNL/s7Ce0koKCIvGpVFvA4JQsiQGLMZo+76n9vZaCq4Tg9mzVZaWN235ZQ==}
+  /reg-suit-interface@0.14.2:
+    resolution: {integrity: sha512-Kgu0SsckdEa95ockolvqJGRiQ1lVfJYUJ2jGSnMBjm7tkIk4sQUiLSL9x2fzrOQS70fFb6uvlNZBdfcnl6FzTg==}
     dependencies:
-      '@types/inquirer': 8.2.0
+      '@types/inquirer': 8.2.10
     dev: true
 
   /resolve-from@4.0.0:
