@@ -15,7 +15,7 @@
   "dependencies": {
     "node-fetch": "2.7.0",
     "vite": "5.2.11",
-    "vite-plugin-dts": "3.7.2"
+    "vite-plugin-dts": "3.9.1"
   },
   "devDependencies": {
     "@stylistic/eslint-plugin-ts": "1.8.1",
