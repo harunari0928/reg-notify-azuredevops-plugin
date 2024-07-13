@@ -38,11 +38,11 @@ devDependencies:
     specifier: 9.1.0
     version: 9.1.0(eslint@9.2.0)
   prettier:
-    specifier: 3.2.5
-    version: 3.2.5
+    specifier: 3.3.3
+    version: 3.3.3
   pretty-quick:
     specifier: 4.0.0
-    version: 4.0.0(prettier@3.2.5)
+    version: 4.0.0(prettier@3.3.3)
   reg-suit-interface:
     specifier: 0.14.2
     version: 0.14.2
@@ -1932,8 +1932,8 @@ packages:
     engines: {node: '>= 0.8.0'}
     dev: true
 
-  /prettier@3.2.5:
-    resolution: {integrity: sha512-3/GWa9aOC0YeD7LUfvOG2NiDyhOWRvt1k+rcKhOuYnMY24iiCphgneUfJDyFXd6rZCAnuLBv6UeAULtrhT/F4A==}
+  /prettier@3.3.3:
+    resolution: {integrity: sha512-i2tDNA0O5IrMO757lfrdQZCc2jPNDVntV0m/+4whiDfWaTKfMNgR7Qz0NAeGz/nRqF4m5/6CLzbP4/liHt12Ew==}
     engines: {node: '>=14'}
     hasBin: true
     dev: true
@@ -1947,7 +1947,7 @@ packages:
       react-is: 18.2.0
     dev: true
 
-  /pretty-quick@4.0.0(prettier@3.2.5):
+  /pretty-quick@4.0.0(prettier@3.3.3):
     resolution: {integrity: sha512-M+2MmeufXb/M7Xw3Afh1gxcYpj+sK0AxEfnfF958ktFeAyi5MsKY5brymVURQLgPLV1QaF5P4pb2oFJ54H3yzQ==}
     engines: {node: '>=14'}
     hasBin: true
@@ -1960,7 +1960,7 @@ packages:
       mri: 1.2.0
       picocolors: 1.0.0
       picomatch: 3.0.1
-      prettier: 3.2.5
+      prettier: 3.3.3
       tslib: 2.6.2
     dev: true
 
